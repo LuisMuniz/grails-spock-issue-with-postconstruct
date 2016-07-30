@@ -13,11 +13,8 @@ class MyServiceSpec extends Specification {
         grailsApplication.config.myProperty = 'myValue'
     }
 
-    void "It fails to initialize myProperty"() {
-        when:
-        service.doSomething()
-
-        then:
-        service.property == null
+    void "It fails to initialize the service"() {
+        expect:
+        false // this is never executed
     }
 }
