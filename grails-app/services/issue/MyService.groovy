@@ -13,8 +13,9 @@ class MyService {
         println "Initializing... ${this}"
         property = grailsApplication.config.myProperty
 
-//Enabling this business sanity check make the service untestable under Spock, because to be able to run, we need to initialize the configuration of the shared instance
-// but the execution of the method under test will not have the initialized property, because the service being executed is not the shared instance
+//Enabling this business sanity check make the service untestable under Spock, because to be able to run, we need to initialize the configuration
+// of the shared instance - PostConstruct is only called on the shared instance for some reason.
+// But the execution of the method under test will not have the initialized property, because the service being executed is not the shared instance
         if (property == "[:]") {
             throw new RuntimeException("This property cannot be empty")
         }
