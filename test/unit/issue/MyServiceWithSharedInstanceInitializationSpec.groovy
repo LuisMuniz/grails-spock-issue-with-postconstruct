@@ -9,7 +9,7 @@ import spock.lang.Specification
 @TestFor(MyService)
 class MyServiceWithSharedInstanceInitializationSpec extends Specification {
 
-    //Initializing the shred instance grailsApplication lets the @PostConstruct work, but will fail during method test
+    //Initializing the shared instance grailsApplication lets the @PostConstruct work, but will fail during method test
     //because the instance that was initialized is the shared instance
     def setupSpec() {
         grailsApplication.config.myProperty = 'myValue'
